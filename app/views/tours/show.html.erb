@@ -1,0 +1,58 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Tour #<%= @tour.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Tour name</dt>
+              <dd><%= @tour.tour_name %></dd>
+
+              <dt>Starting location</dt>
+              <dd><%= @tour.starting_location %></dd>
+
+              <dt>Price</dt>
+              <dd><%= @tour.price %></dd>
+
+              <dt>Duration</dt>
+              <dd><%= @tour.duration %></dd>
+
+              <dt>Description</dt>
+              <dd><%= @tour.description %></dd>
+
+              <dt>User</dt>
+              <dd><%= @tour.user_id %></dd>
+
+              <dt>Country location</dt>
+              <dd><%= @tour.country_location %></dd>
+
+              <dt>City location</dt>
+              <dd><%= @tour.city_location %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/tours" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/tours/<%= @tour.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_tour/<%= @tour.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

@@ -1,0 +1,98 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :multipart => true }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+  </div>
+<p></p>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+  </div>
+<p></p>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+  </div>
+  <div>
+<p></p>
+
+
+<div class = "field">
+<%= f.label :first_name %>
+<%= f.text_field :first_name,  :class => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field" >
+<%= f.label :last_name %>
+<%= f.text_field :last_name,  :class => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+<%= f.label "User Type" %>
+<%= f.select :usertype, ['Tour Guide','Tourist'], :class  => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+<%= f.label "Country" %>
+<%= f.select :country_location, Country.all, :class  => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+<%= f.label "City" %>
+<%= f.text_field :city_location,  :class  => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+<%= f.label "Date of Birth" %>
+<%= f.date_select :dob, :class  => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+<%= f.label :description %>
+<%= f.text_area :description, :class => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+<%= f.label :picture %>
+<%= f.file_field :picture, :class => "form-control" %>
+
+</div>
+
+
+<p></p>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

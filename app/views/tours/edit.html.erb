@@ -1,0 +1,121 @@
+<!-- Validation failure messages -->
+
+<% if @tour.errors.any? %>
+  <% @tour.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Tour #<%= @tour.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_tour/<%= @tour.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for tour_name -->
+          <div class="form-group">
+            <label for="tour_name" class="col-sm-2 control-label">
+              Tour name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="tour_name" name="tour_name" placeholder="Tour name" class="form-control" value="<%= @tour.tour_name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for starting_location -->
+          <div class="form-group">
+            <label for="starting_location" class="col-sm-2 control-label">
+              Starting location
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="starting_location" name="starting_location" placeholder="Starting location" class="form-control" value="<%= @tour.starting_location %>">
+            </div>
+          </div>
+
+          <!-- Label and input for price -->
+          <div class="form-group">
+            <label for="price" class="col-sm-2 control-label">
+              Price
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @tour.price %>">
+            </div>
+          </div>
+
+          <!-- Label and input for duration -->
+          <div class="form-group">
+            <label for="duration" class="col-sm-2 control-label">
+              Duration
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @tour.duration %>">
+            </div>
+          </div>
+
+          <!-- Label and input for description -->
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">
+              Description
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @tour.description %>">
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @tour.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for country_location -->
+          <div class="form-group">
+            <label for="country_location" class="col-sm-2 control-label">
+              Country location
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="country_location" name="country_location" placeholder="Country location" class="form-control" value="<%= @tour.country_location %>">
+            </div>
+          </div>
+
+          <!-- Label and input for city_location -->
+          <div class="form-group">
+            <label for="city_location" class="col-sm-2 control-label">
+              City location
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="city_location" name="city_location" placeholder="City location" class="form-control" value="<%= @tour.city_location %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update Tour
+              </button>
+              or
+              <a href="/tours/<%= @tour.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->

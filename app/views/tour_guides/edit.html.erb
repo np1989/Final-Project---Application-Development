@@ -1,0 +1,121 @@
+<!-- Validation failure messages -->
+
+<% if @tour_guide.errors.any? %>
+  <% @tour_guide.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Tour Guide #<%= @tour_guide.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_tour_guide/<%= @tour_guide.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for country_location -->
+          <div class="form-group">
+            <label for="country_location" class="col-sm-2 control-label">
+              Country location
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="country_location" name="country_location" placeholder="Country location" class="form-control" value="<%= @tour_guide.country_location %>">
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @tour_guide.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for usertype -->
+          <div class="form-group">
+            <label for="usertype" class="col-sm-2 control-label">
+              Usertype
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="usertype" name="usertype" placeholder="Usertype" class="form-control" value="<%= @tour_guide.usertype %>">
+            </div>
+          </div>
+
+          <!-- Label and input for first_name -->
+          <div class="form-group">
+            <label for="first_name" class="col-sm-2 control-label">
+              First name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @tour_guide.first_name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for last_name -->
+          <div class="form-group">
+            <label for="last_name" class="col-sm-2 control-label">
+              Last name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @tour_guide.last_name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for city_location -->
+          <div class="form-group">
+            <label for="city_location" class="col-sm-2 control-label">
+              City location
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="city_location" name="city_location" placeholder="City location" class="form-control" value="<%= @tour_guide.city_location %>">
+            </div>
+          </div>
+
+          <!-- Label and input for picture -->
+          <div class="form-group">
+            <label for="picture" class="col-sm-2 control-label">
+              Picture
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="picture" name="picture" placeholder="Picture" class="form-control" value="<%= @tour_guide.picture %>">
+            </div>
+          </div>
+
+          <!-- Label and input for description -->
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">
+              Description
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @tour_guide.description %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update Tour Guide
+              </button>
+              or
+              <a href="/tour_guides/<%= @tour_guide.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->
