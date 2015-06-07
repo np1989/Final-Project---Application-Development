@@ -12,17 +12,25 @@
 
 
 <!-- Responsive, Isotope-based layout example -->
+<div>
+  <%= search_form_for @q do |f| %>
+  <p class="lead">Search:</p>
 
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Tours (start typing)" class="form-control">
+  <div class="form-group">
+    <%= f.label :country_location_or_starting_location_cont, "Location" %>
+    <%= f.text_field :country_location_or_starting_location_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
   </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/tours" class="btn btn-default btn-block">Clear filters</a>
+  <% end %>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-  <% @tours.each do |tour| %>
+  <% @tour.each do |tour| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -33,26 +41,28 @@
           <dt>Tour name</dt>
           <dd><%= tour.tour_name %></dd>
 
-          <dt>Starting location</dt>
+          <dt>Country</dt>
+              <dd><%= Country.find_country_by_alpha2(@tour.country_location) %></dd>
+
+          <dt>Starting City</dt>
           <dd><%= tour.starting_location %></dd>
 
-          <dt>Price</dt>
+          <dt>Ending City</dt>
+          <dd><%= tour.city_location %></dd>
+
+          <dt>Price (USD)</dt>
           <dd><%= tour.price %></dd>
 
-          <dt>Duration</dt>
+          <dt>Duration (days)</dt>
           <dd><%= tour.duration %></dd>
 
           <dt>Description</dt>
           <dd><%= tour.description %></dd>
 
-          <dt>User</dt>
-          <dd><%= tour.user_id %></dd>
+          <dt>Tour Guide</dt>
+          <dd><%= tour.user.first_name + " " + tour.user.last_name %></dd>
 
-          <dt>Country location</dt>
-          <dd><%= tour.country_location %></dd>
 
-          <dt>City location</dt>
-          <dd><%= tour.city_location %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">

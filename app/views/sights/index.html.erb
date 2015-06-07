@@ -7,16 +7,25 @@
 
 <!-- Responsive, Isotope-based layout example -->
 
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Sights (start typing)" class="form-control">
+<div>
+  <%= search_form_for @q do |f| %>
+  <p class="lead">Search:</p>
+
+  <div class="form-group">
+    <%= f.label :country_location_or_city_location_cont, "Location" %>
+    <%= f.text_field :country_location_or_city_location_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
   </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/sights" class="btn btn-default btn-block">Clear filters</a>
+  <% end %>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @sights.each do |sight| %>
+  <% @sights.each do |sight| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -24,8 +33,10 @@
       </div>
       <div class="panel-body">
         <dl>
+          <dd> <img src="<%= sight.picture %>" class="img-responsive"> </dd>
+
           <dt>Country location</dt>
-          <dd><%= sight.country_location %></dd>
+          <dd><%= Country.find_country_by_alpha2(sight.country_location) %></dd>
 
           <dt>City location</dt>
           <dd><%= sight.city_location %></dd>
@@ -33,8 +44,11 @@
           <dt>Tour</dt>
           <dd><%= sight.tour_id %></dd>
 
-          <dt>User</dt>
-          <dd><%= sight.user_id %></dd>
+          <dt>Description</dt>
+          <dd><%= sight.descrption %></dd>
+
+
+
 
         </dl>
         <div class="btn-group btn-group-justified">
@@ -53,7 +67,7 @@
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
 </div>
 
 <!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->

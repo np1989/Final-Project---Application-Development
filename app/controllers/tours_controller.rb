@@ -1,7 +1,8 @@
 class ToursController < ApplicationController
   def index
-    @tours = Tour.all
     @tour_guide = User.all
+@q = Tour.ransack(params[:q])
+  @tour = @q.result
 
   end
 
@@ -33,6 +34,7 @@ class ToursController < ApplicationController
 
   def edit
     @tour = Tour.find(params[:id])
+    @countries = Country.all
   end
 
   def update

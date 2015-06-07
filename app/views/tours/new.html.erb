@@ -1,12 +1,12 @@
 <!-- Validation failure messages -->
 
 <% if @tour.errors.any? %>
-  <% @tour.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @tour.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <!-- Responsive panel example -->
@@ -38,7 +38,8 @@
               Country
             </label>
             <div class="col-sm-10">
-              <input type="text" id="country_location" name="country_location" placeholder="Country" class="form-control" value="<%= @tour.country_location %>">
+            <input type="text" id="country_location" name="country_location" placeholder="Country" class="form-control" value="<%= @tour.country_location %>">
+
             </div>
           </div>
 
@@ -63,13 +64,13 @@
             </div>
           </div>
 
-            <!-- Label and input for duration -->
+          <!-- Label and input for duration -->
           <div class="form-group">
             <label for="duration" class="col-sm-2 control-label">
               Duration
             </label>
             <div class="col-sm-10">
-              <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @tour.duration %>">
+              <input type="text" id="duration" name="duration" placeholder="Days" class="form-control" value="<%= @tour.duration %>">
             </div>
           </div>
 
@@ -77,7 +78,7 @@
           <!-- Label and input for price -->
           <div class="form-group">
             <label for="price" class="col-sm-2 control-label">
-              Price
+              Price (USD)
             </label>
             <div class="col-sm-10">
               <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @tour.price %>">
@@ -91,7 +92,7 @@
               Description
             </label>
             <div class="col-sm-10">
-              <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @tour.description %>">
+              <input type="text_area" id="description" name="description" placeholder="Description" class="form-control" value="<%= @tour.description %>">
             </div>
           </div>
 
@@ -101,24 +102,24 @@
               Tour Guide
             </label>
             <div class="col-sm-10">
-               <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id,:first_name, @tour.user_id), :class => "form-control") %>
-            </div>
-          </div>
+             <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id,:first_name, @tour.user_id), :class => "form-control") %>
+           </div>
+         </div>
 
 
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button class="btn btn-success">
-                Create Tour
-              </button>
-              or
-              <a href="/tours">Cancel</a>
-            </div>
+         <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-success">
+              Create Tour
+            </button>
+            or
+            <a href="/tours">Cancel</a>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 </div>
 
 <!-- End responsive panel example -->

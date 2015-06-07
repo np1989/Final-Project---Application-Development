@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # Routes for the Tour_guide resource:
   # CREATE
+
 root "tourit#about"
 devise_for :users
 

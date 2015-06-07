@@ -72,6 +72,15 @@
 
 <p></p>
 
+
+<div class = "field">
+<%= f.label "Language" %>
+<%= f.select :language, I18nData.languages('EN'), :class  => "form-control" %>
+
+</div>
+
+<p></p>
+
 <div class = "field">
 <%= f.label :description %>
 <%= f.text_area :description, :class => "form-control" %>

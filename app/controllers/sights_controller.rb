@@ -1,6 +1,7 @@
 class SightsController < ApplicationController
   def index
-    @sights = Sight.all
+    @q = Sight.ransack(params[:q])
+  @sights = @q.result
   end
 
   def show
@@ -9,9 +10,11 @@ class SightsController < ApplicationController
 
   def new
     @sight = Sight.new
+
   end
 
   def create
+
     @sight = Sight.new
     @sight.country_location = params[:country_location]
     @sight.city_location = params[:city_location]

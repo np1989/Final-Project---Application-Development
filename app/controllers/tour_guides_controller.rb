@@ -1,6 +1,9 @@
 class TourGuidesController < ApplicationController
   def index
-    @tour_guides = User.where(:usertype => "Tour Guide")
+
+  @q = User.where(:usertype => "Tour Guide").ransack(params[:q])
+  @tour_guides = @q.result
+
   end
 
   def show

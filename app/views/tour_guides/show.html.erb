@@ -4,35 +4,33 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Tour Guide #<%= @tour_guide.id %></h3>
+        <h3 class="panel-title">Tour Guide #<%= @tour_guides.id %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Country location</dt>
-              <dd><%= @tour_guide.country_location %></dd>
-
-              <dt>User</dt>
-              <dd><%= @tour_guide.user_id %></dd>
-
-              <dt>Usertype</dt>
-              <dd><%= @tour_guide.usertype %></dd>
-
-              <dt>First name</dt>
-              <dd><%= @tour_guide.first_name %></dd>
-
-              <dt>Last name</dt>
-              <dd><%= @tour_guide.last_name %></dd>
-
-              <dt>City location</dt>
-              <dd><%= @tour_guide.city_location %></dd>
 
               <dt>Picture</dt>
-              <dd><%= @tour_guide.picture %></dd>
+              <dd> <img src="<%= @tour_guides.picture %>" class="img-responsive"> </dd>
+
+              <dt>Country location</dt>
+              <dd><%= Country.find_country_by_alpha2(@tour_guides.country_location) %></dd>
+
+              <dt>Usertype</dt>
+              <dd><%= @tour_guides.usertype %></dd>
+
+              <dt>First name</dt>
+              <dd><%= @tour_guides.first_name %></dd>
+
+              <dt>Last name</dt>
+              <dd><%= @tour_guides.last_name %></dd>
+
+              <dt>City location</dt>
+              <dd><%= @tour_guides.city_location %></dd>
 
               <dt>Description</dt>
-              <dd><%= @tour_guide.description %></dd>
+              <dd><%= @tour_guides.description %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
@@ -40,11 +38,11 @@
                 <i class="fa fa-chevron-left"></i>
               </a>
 
-              <a href="/tour_guides/<%= @tour_guide.id %>/edit" class="btn btn-warning">
+              <a href="/tour_guides/<%= @tour_guides.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
 
-              <a href="/delete_tour_guide/<%= @tour_guide.id %>" class="btn btn-danger" rel="nofollow">
+              <a href="/delete_tour_guide/<%= @tour_guides.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
             </div>

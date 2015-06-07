@@ -11,7 +11,7 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Country location</dt>
-              <dd><%= @sight.country_location %></dd>
+              <dd><%= Country.find_country_by_alpha2(@sight.country_location) %></dd>
 
               <dt>City location</dt>
               <dd><%= @sight.city_location %></dd>

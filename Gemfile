@@ -22,7 +22,12 @@ gem 'devise'
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git", :branch => "simple"
 
 gem 'countries'
+
 gem 'carrierwave'
+
+gem 'ransack'
+
+gem 'i18n_data'
 
 
 # Use jquery as the JavaScript library
