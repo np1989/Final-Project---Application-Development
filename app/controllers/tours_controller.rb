@@ -1,6 +1,8 @@
 class ToursController < ApplicationController
   def index
     @tours = Tour.all
+    @tour_guide = User.all
+
   end
 
   def show

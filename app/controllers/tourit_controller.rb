@@ -4,7 +4,7 @@ def about
 
 end
 
-def create_user
+def landingpage
 
 end
 

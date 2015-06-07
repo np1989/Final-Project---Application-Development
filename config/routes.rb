@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Routes for the Tour_guide resource:
   # CREATE
-root "sights#index"
+root "tourit#about"
 devise_for :users
 
   get "/tour_guides/new", :controller => "tour_guides", :action => "new"
@@ -71,6 +71,7 @@ devise_for :users
   #------------------------------
 
   get "/tourit/about", :controller => "tourit", :action => "about"
+  get "/tourit/landingpage", :controller => "tourit", :action => "landingpage"
  # get "/tourit/new_user", :controller => "tourit", :action => "create_user"
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,7 +4,7 @@ class TourGuidesController < ApplicationController
   end
 
   def show
-    @tour_guide = User.find(params[:id])
+    @tour_guides = User.find(params[:id])
   end
 
 #  def new
@@ -30,22 +30,22 @@ class TourGuidesController < ApplicationController
 #  end
 
   def edit
-    @tour_guide = User.find(params[:id])
+    @tour_guides = User.find(params[:id])
   end
 
   def update
-    @tour_guide = User.find(params[:id])
+    @tour_guides = User.find(params[:id])
 
-    @tour_guide.country_location = params[:country_location]
-    @tour_guide.user_id = params[:user_id]
-    @tour_guide.usertype = params[:usertype]
-    @tour_guide.first_name = params[:first_name]
-    @tour_guide.last_name = params[:last_name]
-    @tour_guide.city_location = params[:city_location]
-    @tour_guide.picture = params[:picture]
-    @tour_guide.description = params[:description]
+    @tour_guides.country_location = params[:country_location]
+    @tour_guides.user_id = params[:user_id]
+    @tour_guides.usertype = params[:usertype]
+    @tour_guides.first_name = params[:first_name]
+    @tour_guides.last_name = params[:last_name]
+    @tour_guides.city_location = params[:city_location]
+    @tour_guides.picture = params[:picture]
+    @tour_guides.description = params[:description]
 
-    if @tour_guide.save
+    if @tour_guides.save
       redirect_to "/tour_guides", :notice => "Tour guide updated successfully."
     else
       render 'edit'
@@ -53,9 +53,9 @@ class TourGuidesController < ApplicationController
   end
 
   def destroy
-    @tour_guide = User.find(params[:id])
+    @tour_guides = User.find(params[:id])
 
-    @tour_guide.destroy
+    @tour_guides.destroy
 
     redirect_to "/tour_guides", :notice => "Tour guide deleted."
   end
