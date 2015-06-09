@@ -42,7 +42,7 @@
           <dd><%= tour.tour_name %></dd>
 
           <dt>Country</dt>
-              <dd><%= Country.find_country_by_alpha2(@tour.country_location) %></dd>
+              <dd><%= Country.find_country_by_alpha2(tour.country_location) %></dd>
 
           <dt>Starting City</dt>
           <dd><%= tour.starting_location %></dd>

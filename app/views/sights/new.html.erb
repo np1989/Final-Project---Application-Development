@@ -22,13 +22,23 @@
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">
+            Name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @sight.name %>">
+            </div>
+          </div>
+
           <!-- Label and input for country_location -->
           <div class="form-group">
             <label for="country_location" class="col-sm-2 control-label">
               Country location
             </label>
             <div class="col-sm-10">
-              <input type="text" id="country_location" name="country_location" placeholder="Country location" class="form-control" value="<%= @sight.country_location %>">
+              <input type="text" id="country_location" name="country_location" placeholder="Country" class="form-control" value="<%= @sight.country_location %>">
             </div>
           </div>
 
@@ -38,10 +48,21 @@
               City location
             </label>
             <div class="col-sm-10">
-              <input type="text" id="city_location" name="city_location" placeholder="City location" class="form-control" value="<%= @sight.city_location %>">
+              <input type="text" id="city_location" name="city_location" placeholder="City" class="form-control" value="<%= @sight.city_location %>">
             </div>
           </div>
 
+    <!-- Description upload-->
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">
+              Description:
+            </label>
+            <div class="col-sm-10">
+              <textarea id="description" rows = "10" name="description" placeholder="Description..." class="form-control" value="<%= @sight.description %>"> </textarea>
+            </div>
+          </div>
+
+          <!-- Picture upload -->
           <div class="form-group">
             <label for="picture" class="col-sm-2 control-label">
               Picture

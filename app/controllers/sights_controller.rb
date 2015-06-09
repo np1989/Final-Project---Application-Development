@@ -20,6 +20,10 @@ class SightsController < ApplicationController
     @sight.city_location = params[:city_location]
     @sight.tour_id = params[:tour_id]
     @sight.user_id = params[:user_id]
+    @sight.picture = params[:picture]
+    @sight.description = params[:description]
+
+
 
     if @sight.save
       redirect_to "/sights", :notice => "Sight created successfully."

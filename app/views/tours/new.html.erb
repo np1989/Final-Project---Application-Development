@@ -38,7 +38,10 @@
               Country
             </label>
             <div class="col-sm-10">
-            <input type="text" id="country_location" name="country_location" placeholder="Country" class="form-control" value="<%= @tour.country_location %>">
+
+
+<%= select_tag(:country_location, options_from_collection_for_select(Country.all, :id,:alpha2, @tour.user_id), :class => "form-control") %>
+
 
             </div>
           </div>

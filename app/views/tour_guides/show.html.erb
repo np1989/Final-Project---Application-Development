@@ -32,25 +32,31 @@
               <dt>Description</dt>
               <dd><%= @tour_guides.description %></dd>
 
-            </dl>
-            <div class="btn-group btn-group-justified">
-              <a href="/tour_guides" class="btn btn-primary">
-                <i class="fa fa-chevron-left"></i>
-              </a>
+              <ul class = "list-group">
+              <li class = "list-group-item">Tours</li>
+                <% @tour_guides.tours.each do |tour| %>
+                <li class = "list-group-item"><%= tour.tour_name %></li>
+                <% end %>
 
-              <a href="/tour_guides/<%= @tour_guides.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
+              </dl>
+              <div class="btn-group btn-group-justified">
+                <a href="/tour_guides" class="btn btn-primary">
+                  <i class="fa fa-chevron-left"></i>
+                </a>
 
-              <a href="/delete_tour_guide/<%= @tour_guides.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
+                <a href="/tour_guides/<%= @tour_guides.id %>/edit" class="btn btn-warning">
+                  <i class="fa fa-edit"></i>
+                </a>
+
+                <a href="/delete_tour_guide/<%= @tour_guides.id %>" class="btn btn-danger" rel="nofollow">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- End responsive panel example -->
+  <!-- End responsive panel example -->

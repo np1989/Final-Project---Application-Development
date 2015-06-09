@@ -1,8 +1,8 @@
 class ToursController < ApplicationController
   def index
     @tour_guide = User.all
-@q = Tour.ransack(params[:q])
-  @tour = @q.result
+    @q = Tour.ransack(params[:q])
+    @tour = @q.result
 
   end
 
