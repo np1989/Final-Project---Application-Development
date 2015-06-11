@@ -16,7 +16,6 @@ class SightsController < ApplicationController
   def create
 
     @sight = Sight.new
-    @tour_sights   = Tour_sight.new
     @sight.name = params[:name]
 
     @sight.country_location = params[:country_location]
@@ -25,10 +24,9 @@ class SightsController < ApplicationController
     @sight.user_id = params[:user_id]
     @sight.picture = params[:picture]
     @sight.description = params[:description]
-    @tour_sights.tour_id = params[:tour_id]
-    @tour_sights.sight_id = params[:id]
+    @sight.tour_id = params[:tour_id]
 
-    if @sight.save && @tour_sights.save
+    if @sight.save
       redirect_to "/sights", :notice => "Sight created successfully."
     else
       render 'new'

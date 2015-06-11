@@ -8,6 +8,7 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @sights = Sight.all
   end
 
   def new

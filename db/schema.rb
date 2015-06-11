@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 20150610023035) do
     t.datetime "updated_at"
   end
 
-  create_table "tour_sights", force: :cascade do |t|
-    t.integer  "tour_id"
-    t.integer  "sight_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tours", force: :cascade do |t|
     t.string   "tour_name"
     t.string   "starting_location"
@@ -57,6 +50,13 @@ ActiveRecord::Schema.define(version: 20150610023035) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
+  end
+
+  create_table "toursights", force: :cascade do |t|
+    t.integer  "tour_id"
+    t.integer  "sight_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

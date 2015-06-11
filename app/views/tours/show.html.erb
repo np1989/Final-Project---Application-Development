@@ -87,8 +87,12 @@
 
               <ul class = "list-group" class = "form-control">
                 <li class = "list-group-item">Sights</li>
-                <% @tour.sights.each do |sight| %>
-                <li class = "list-group-item"><%= sight.id %></li>
+                <% @sights.each do |sight| %>
+                <% if @tour.id == sight.tour_id %>
+                <li class = "list-group-item"><%= sight.name %></li>
+                <% else %>
+                <p></p>
+                <% end %>
                 <% end %>
               </ul>
             </dl>
