@@ -17,7 +17,7 @@ def configure_permitted_parameters
   devise_parameter_sanitizer.for(:sign_up) << :dob
   devise_parameter_sanitizer.for(:sign_up) << :description
   devise_parameter_sanitizer.for(:sign_up) << :picture
-    devise_parameter_sanitizer.for(:sign_up) << :language
+  devise_parameter_sanitizer.for(:sign_up) << :language
 
 
 

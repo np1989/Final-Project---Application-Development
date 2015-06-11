@@ -11,6 +11,7 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
 
+
               <dt>Picture</dt>
               <dd> <img src="<%= @tour_guides.picture %>" class="img-responsive"> </dd>
 
@@ -35,7 +36,7 @@
               <ul class = "list-group">
               <li class = "list-group-item">Tours</li>
                 <% @tour_guides.tours.each do |tour| %>
-                <li class = "list-group-item"><%= tour.tour_name %></li>
+                <li class = "list-group-item"><a href = "/tours/<%= tour.id %>"><%= tour.tour_name %></a></li>
                 <% end %>
 
               </dl>
@@ -93,8 +94,8 @@
               <ul class = "list-group" class = "form-control">
               <li class = "list-group-item">Tours</li>
                 <% @tour_guides.tours.each do |tour| %>
-                <li class = "list-group-item"><%= tour.tour_name %></li>
-                <% end %>
+              <li class = "list-group-item"><a href = "/tours/<%= tour.id %>"><%= tour.tour_name %></a></li>
+                 <% end %>
 
               </dl>
               <div class="btn-group btn-group-justified">

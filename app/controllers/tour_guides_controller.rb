@@ -33,22 +33,22 @@ class TourGuidesController < ApplicationController
 #  end
 
   def edit
-    @tour_guides = User.find(params[:id])
+    @tour_guide = User.find(params[:id])
   end
 
   def update
-    @tour_guides = User.find(params[:id])
+    @tour_guide = User.find(params[:id])
 
-    @tour_guides.country_location = params[:country_location]
-    @tour_guides.user_id = params[:user_id]
-    @tour_guides.usertype = params[:usertype]
-    @tour_guides.first_name = params[:first_name]
-    @tour_guides.last_name = params[:last_name]
-    @tour_guides.city_location = params[:city_location]
-    @tour_guides.picture = params[:picture]
-    @tour_guides.description = params[:description]
+    @tour_guide.country_location = params[:country_location]
+    @tour_guide.user_id = params[:user_id]
+    @tour_guide.usertype = params[:usertype]
+    @tour_guide.first_name = params[:first_name]
+    @tour_guide.last_name = params[:last_name]
+    @tour_guide.city_location = params[:city_location]
+    @tour_guide.picture = params[:picture]
+    @tour_guide.description = params[:description]
 
-    if @tour_guides.save
+    if @tour_guide.save
       redirect_to "/tour_guides", :notice => "Tour guide updated successfully."
     else
       render 'edit'
@@ -56,9 +56,9 @@ class TourGuidesController < ApplicationController
   end
 
   def destroy
-    @tour_guides = User.find(params[:id])
+    @tour_guide = User.find(params[:id])
 
-    @tour_guides.destroy
+    @tour_guide.destroy
 
     redirect_to "/tour_guides", :notice => "Tour guide deleted."
   end

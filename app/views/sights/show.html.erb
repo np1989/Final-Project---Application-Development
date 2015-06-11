@@ -10,6 +10,8 @@
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
+              <dd> <img src="<%= @sight.picture %>" class="img-responsive"> </dd>
+
               <dt>Country location</dt>
               <dd><%= Country.find_country_by_alpha2(@sight.country_location) %></dd>
 
@@ -17,10 +19,10 @@
               <dd><%= @sight.city_location %></dd>
 
               <dt>Tour</dt>
-              <dd><%= @sight.tour_id %></dd>
+              <dd><%= @sight.tour_id%> </dd>
 
-              <dt>User</dt>
-              <dd><%= @sight.user_id %></dd>
+              <dt>Description</dt>
+              <dd><%= @sight.description%> </dd>
 
             </dl>
             <div class="btn-group btn-group-justified">

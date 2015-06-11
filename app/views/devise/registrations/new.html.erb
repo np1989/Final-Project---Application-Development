@@ -1,117 +1,116 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :multipart => true }) do |f| %>
-  <%= devise_error_messages! %>
+<%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
-  </div>
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+</div>
 <p></p>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
-  </div>
+<div class="field">
+  <%= f.label :password %>
+  <% if @minimum_password_length %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+</div>
 <p></p>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
-  </div>
-  <div>
+<div class="field">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+</div>
+
 <p></p>
 
 
 <div class = "field">
-<%= f.label :first_name %>
-<%= f.text_field :first_name,  :class => "form-control" %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name,  :class => "form-control" %>
 
 </div>
 
 <p></p>
 
 <div class = "field" >
-<%= f.label :last_name %>
-<%= f.text_field :last_name,  :class => "form-control" %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name,  :class => "form-control" %>
 
 </div>
 
 <p></p>
 
 <div class = "field">
-<%= f.label "User Type" %>
-<%= f.select :usertype, ['Tour Guide','Tourist'], :class  => "form-control" %>
+  <%= f.label "User Type" %>
+  <%= f.select :usertype, ['Tour Guide','Tourist'], :class  => "form-control" %>
 
 </div>
 
 <p></p>
 
 <div class = "field">
-<%= f.label "Country" %>
-<%= f.select :country_location, Country.all, :class  => "form-control" %>
+  <%= f.label "Country" %>
+  <%= f.select :country_location, Country.all, :class  => "form-control" %>
 
 </div>
 
 <p></p>
 
 <div class = "field">
-<%= f.label "City" %>
-<%= f.text_field :city_location,  :class  => "form-control" %>
-
-</div>
-
-<p></p>
-
-
-<div class='input-group date' id='dob'>
-  <input type='text' class="form-control" name=":dob" id=":dob">
-  <span class="input-group-addon">
-    <span class="glyphicon glyphicon-calendar"></span>
-  </span>
-</div>
-
-</div>
-
-<p></p>
-
-
-<div class = "field">
-<%= f.label "Language" %>
-<%= f.select :language, I18nData.languages('EN'), :class  => "form-control" %>
+  <%= f.label "City" %>
+  <%= f.text_field :city_location,  :class  => "form-control" %>
 
 </div>
 
 <p></p>
 
 <div class = "field">
-<%= f.label :description %>
-<%= f.text_area :description, :class => "form-control" %>
+  <%= f.label "Date of Birth" %>
 
-</div>
-
-<p></p>
-
-<div class = "field">
-<%= f.label :picture %>
-<%= f.file_field :picture, :class => "form-control" %>
-
-</div>
-
-
-<p></p>
+  <div class='input-group date' id='dob'>
+    <input type='text' class="form-control" name=":dob" id=":dob">
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
   </div>
+</div>
+<p></p>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+
+<div class = "field">
+  <%= f.label "Language" %>
+  <%= f.select :language, I18nData.languages('EN'), :class  => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+  <%= f.label :description %>
+  <%= f.text_area :description, :class => "form-control" %>
+
+</div>
+
+<p></p>
+
+<div class = "field">
+  <%= f.label :picture %>
+  <%= f.file_field :picture, :class => "form-control" %>
+
+</div>
+<script type="text/javascript">
+  $(function () {
+    $('#dob').datetimepicker(); });
+</script>
+
+<p></p>
+
+<div class="actions">
+  <%= f.submit "Sign up"%>
+</div>
 <% end %>
+
+
 
 <%= render "devise/shared/links" %>
 
-<script type="text/javascript">
-  $(function () {
-    $('#dob').datetimepicker();
-  });
-</script>
