@@ -16,16 +16,19 @@ class SightsController < ApplicationController
   def create
 
     @sight = Sight.new
+    @tour_sights   = Tour_sight.new
+    @sight.name = params[:name]
+
     @sight.country_location = params[:country_location]
     @sight.city_location = params[:city_location]
     @sight.tour_id = params[:tour_id]
     @sight.user_id = params[:user_id]
     @sight.picture = params[:picture]
     @sight.description = params[:description]
+    @tour_sights.tour_id = params[:tour_id]
+    @tour_sights.sight_id = params[:id]
 
-
-
-    if @sight.save
+    if @sight.save && @tour_sights.save
       redirect_to "/sights", :notice => "Sight created successfully."
     else
       render 'new'
@@ -43,6 +46,8 @@ class SightsController < ApplicationController
     @sight.city_location = params[:city_location]
     @sight.tour_id = params[:tour_id]
     @sight.user_id = params[:user_id]
+    @sight.picture = params[:picture]
+    @sight.tour_sights.tour_id = params[:tour_id]
 
     if @sight.save
       redirect_to "/sights", :notice => "Sight updated successfully."

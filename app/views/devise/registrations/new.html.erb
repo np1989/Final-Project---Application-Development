@@ -64,9 +64,13 @@
 
 <p></p>
 
-<div class = "field">
-<%= f.label "Date of Birth" %>
-<%= f.date_select :dob, :class  => "form-control" %>
+
+<div class='input-group date' id='dob'>
+  <input type='text' class="form-control" name=":dob" id=":dob">
+  <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+  </span>
+</div>
 
 </div>
 
@@ -105,3 +109,9 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script type="text/javascript">
+  $(function () {
+    $('#dob').datetimepicker();
+  });
+</script>

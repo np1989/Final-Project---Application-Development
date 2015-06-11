@@ -1,3 +1,61 @@
+<% if current_user.id != @tour_guides.id%>
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Tour Guide #<%= @tour_guides.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+
+              <dt>Picture</dt>
+              <dd> <img src="<%= @tour_guides.picture %>" class="img-responsive"> </dd>
+
+              <dt>Country location</dt>
+              <dd><%= Country.find_country_by_alpha2(@tour_guides.country_location) %></dd>
+
+              <dt>First name</dt>
+              <dd><%= @tour_guides.first_name %></dd>
+
+              <dt>Last name</dt>
+              <dd><%= @tour_guides.last_name %></dd>
+
+              <dt>City location</dt>
+              <dd><%= @tour_guides.city_location %></dd>
+
+              <dt>Member since:   </dt>
+                <%= time_ago_in_words(@tour_guides.created_at) %> ago
+
+              <dt>Description</dt>
+              <dd><%= @tour_guides.description %></dd>
+
+              <ul class = "list-group">
+              <li class = "list-group-item">Tours</li>
+                <% @tour_guides.tours.each do |tour| %>
+                <li class = "list-group-item"><%= tour.tour_name %></li>
+                <% end %>
+
+              </dl>
+              <div class="btn-group btn-group-justified">
+                <a href="/tour_guides" class="btn btn-primary">
+                  <i class="fa fa-chevron-left"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End responsive panel example -->
+
+
+
+<% else %>
 <!-- Responsive panel example-->
 
 <div class="row">
@@ -17,9 +75,6 @@
               <dt>Country location</dt>
               <dd><%= Country.find_country_by_alpha2(@tour_guides.country_location) %></dd>
 
-              <dt>Usertype</dt>
-              <dd><%= @tour_guides.usertype %></dd>
-
               <dt>First name</dt>
               <dd><%= @tour_guides.first_name %></dd>
 
@@ -29,10 +84,13 @@
               <dt>City location</dt>
               <dd><%= @tour_guides.city_location %></dd>
 
+              <dt>Member since:   </dt>
+                <%= time_ago_in_words(@tour_guides.created_at) %> ago
+
               <dt>Description</dt>
               <dd><%= @tour_guides.description %></dd>
 
-              <ul class = "list-group">
+              <ul class = "list-group" class = "form-control">
               <li class = "list-group-item">Tours</li>
                 <% @tour_guides.tours.each do |tour| %>
                 <li class = "list-group-item"><%= tour.tour_name %></li>
@@ -58,5 +116,5 @@
       </div>
     </div>
   </div>
-
+<% end %>
   <!-- End responsive panel example -->
